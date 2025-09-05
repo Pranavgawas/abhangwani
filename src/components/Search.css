@@ -1,0 +1,36 @@
+.search-header {
+  margin-bottom: 16px;
+}
+
+.search-header input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+.search-header button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.filter-chips button {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
