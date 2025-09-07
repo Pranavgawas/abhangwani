@@ -1,3 +1,16 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 50%, #fdba74 100%);
+  min-height: 100vh;
+}
+
+/* App Container Styles - Mobile-first Design */
 .app-container {
   max-width: 360px;
   margin: 0 auto;
@@ -10,6 +23,7 @@
   flex-direction: column;
 }
 
+/* Status Bar */
 .status-bar {
   background: #1a1a1a;
   color: white;
@@ -19,6 +33,7 @@
   justify-content: space-between;
 }
 
+/* Header */
 .header {
   background: linear-gradient(to right, #f97316, #ef4444, #ec4899);
   color: white;
@@ -31,11 +46,13 @@
 .header h1 {
   font-size: 1.25rem;
   font-weight: bold;
+  margin: 0;
 }
 
 .header p {
   font-size: 0.875rem;
   color: #fed7aa;
+  margin: 0;
 }
 
 .header button {
@@ -44,39 +61,189 @@
   color: white;
   padding: 8px;
   cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
 }
 
 .header button:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 80px;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 360px;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-button.active {
+  color: #f97316;
+}
+
+.nav-button span {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.nav-button .badge {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  background: #ef4444;
+  color: white;
   border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Modern Responsive Design for larger screens */
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1200px;
+    height: auto;
+    min-height: 90vh;
+    margin: 2rem auto;
+    border-radius: 2rem;
+  }
+  
+  .nav-bar {
+    position: static;
+    transform: none;
+    max-width: none;
+    width: auto;
+    border-top: none;
+    border-right: 1px solid #e5e7eb;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav-button {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  .nav-button span {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  
+  .content {
+    padding-bottom: 1rem;
+  }
+}
+
+.header button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhanced Audio Player Styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .audio-player {
   background: linear-gradient(to right, #f97316, #ef4444);
   color: white;
-  padding: 8px 16px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.audio-controls {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.audio-player button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
 }
 
 .content {
   flex: 1;
   overflow-y: auto;
-  padding: 16px;
+  background: #f9fafb;
 }
 
 .nav-bar {
   border-top: 1px solid #e5e7eb;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  background: white;
 }
 
 .nav-button {
@@ -90,6 +257,11 @@
   color: #6b7280;
   font-size: 12px;
   position: relative;
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background: #f3f4f6;
 }
 
 .nav-button.active {
@@ -99,8 +271,8 @@
 
 .badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: 4px;
+  right: 8px;
   background: #ef4444;
   color: white;
   border-radius: 50%;
@@ -110,6 +282,7 @@
   align-items: center;
   justify-content: center;
   font-size: 10px;
+  font-weight: bold;
 }
 
 .card {
@@ -118,14 +291,22 @@
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 8px;
+  transition: all 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .card.streak {
   background: linear-gradient(to right, #d1fae5, #a7f3d0);
+  border-color: #10b981;
 }
 
 .card.featured {
   background: linear-gradient(to right, #fed7aa, #fef3c7);
+  border-color: #f97316;
 }
 
 .progress-bar {
@@ -138,6 +319,7 @@
 .progress-bar div {
   background: #10b981;
   height: 100%;
+  transition: width 0.3s ease;
 }
 
 .section {
@@ -148,6 +330,7 @@
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 12px;
+  color: #374151;
 }
 
 .grid {
@@ -161,15 +344,23 @@
   overflow-x: auto;
   gap: 12px;
   padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-grid .card {
   min-width: 100px;
+  flex-shrink: 0;
 }
 
 .action-buttons {
   display: flex;
   gap: 8px;
+  margin-top: 8px;
 }
 
 .action-buttons button {
@@ -179,4 +370,79 @@
   padding: 6px 12px;
   font-size: 12px;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-buttons button:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Playlist Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 16px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 28rem;
+  width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation Classes */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1f2937;
+    --bg-secondary: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 320px) {
+  .app-container {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  
+  .header {
+    padding: 12px;
+  }
+  
+  .nav-button {
+    padding: 8px;
+    font-size: 10px;
+  }
 }
